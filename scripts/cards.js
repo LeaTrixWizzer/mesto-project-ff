@@ -1,26 +1,26 @@
 const initialCards = [
     {
-      name: "Рош-ха-Никра",
-      link: "https://images.unsplash.com/photo-1632763247220-3a0706133316?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      name: "Архыз",
+      link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
     },
     {
-      name: "Ко Липе",
-      link: "https://images.unsplash.com/photo-1515555585025-54136276b6e3?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      name: "Челябинская область",
+      link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
     },
     {
-      name: "Пула",
-      link: "https://images.unsplash.com/photo-1601301558660-27bfcf4410a0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHVuZGVyd2F0ZXJ8ZW58MHwxfDB8fHwy",
+      name: "Иваново",
+      link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
     },
     {
-      name: "Оаху",
-      link: "https://images.unsplash.com/photo-1615748339223-a25571a206a3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzh8fHVuZGVyd2F0ZXJ8ZW58MHwxfDB8fHwy",
+      name: "Камчатка",
+      link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
     },
     {
-      name: "Кэрнс",
-      link: "https://images.unsplash.com/photo-1572317708804-41107920bee5?q=80&w=1984&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      name: "Холмогорский район",
+      link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
     },
     {
-      name: "Торонто",
-      link: "https://images.unsplash.com/photo-1596519398082-726c1594c985?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDJ8fHVuZGVyd2F0ZXJ8ZW58MHwxfDB8fHwy",
+      name: "Байкал",
+      link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
     }
 ];
