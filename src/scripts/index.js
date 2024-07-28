@@ -25,23 +25,23 @@ const addForm = modalAddCard.querySelector(".popup__form");
 const cardNameInput = addForm.querySelector('input[name="place-name"]');
 const cardLinkInput = addForm.querySelector('input[name="link"]');
 
+const previewImage = document.querySelector(".popup__image");
+const captionModal = document.querySelector(".popup__caption");
+const previewImageModal = document.querySelector(".popup_type_image");
+
 // Функция обработки клика на изображение карточки
 
-export const clickHandleImage = (evt) => {
+const clickHandleImage = (evt) => {
   const element = evt.target.closest(".card");
   const cardImage = element.querySelector(".card__image");
   const cardTitle = element.querySelector(".card__title");
 
-  const previewImage = document.querySelector(".popup__image");
-  const captionModal = document.querySelector(".popup__caption");
-  const previewImageModal = document.querySelector(".popup_type_image");
-
-  openModal(previewImageModal);
-
   previewImage.src = cardImage.src;
-  previewImage.alt = cardTitle.name;
+  previewImage.alt = cardTitle.alt;
 
   captionModal.textContent = cardTitle.textContent;
+
+  openModal(previewImageModal);
 };
 
 // Вывод карточек на страничку
@@ -90,7 +90,8 @@ const submitAddForm = (evt) => {
     cardNameInput.value,
     cardLinkInput.value,
     likeCard,
-    deleteCard
+    deleteCard,
+    clickHandleImage
   );
   cardList.prepend(addCard);
 

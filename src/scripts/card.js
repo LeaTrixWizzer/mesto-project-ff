@@ -1,15 +1,19 @@
-// Импорт данных
-
-import { clickHandleImage } from "./index";
-
 // Объявление констант
 
 const cardTemplate = document.querySelector("#card-template").content;
 
 // Функция создание карточек
 
-const createCard = (cardName, cardLink, likeCard, deleteCard) => {
-  const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
+const createCard = (
+  cardName,
+  cardLink,
+  likeCard,
+  deleteCard,
+  clickHandleImage
+) => {
+  const cardElement = cardTemplate
+    .querySelector(".places__item")
+    .cloneNode(true);
   const cardImage = cardElement.querySelector(".card__image");
   cardImage.addEventListener("click", clickHandleImage);
 
