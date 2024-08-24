@@ -1,6 +1,6 @@
-.card__like-container{
+.card__like {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
+  gap: 3px;
 }

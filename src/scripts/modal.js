@@ -1,11 +1,11 @@
 const openModal = (modal) => {
   modal.classList.add("popup_is-opened");
-  attachModalEvents();
+  document.addEventListener("keydown", handleEscapes);
 };
 
 const closeModal = (modal) => {
   modal.classList.remove("popup_is-opened");
-  removeModalListeners();
+  document.removeEventListener("keydown", handleEscapes);
 };
 
 const handleEscapes = (evt) => {
@@ -15,28 +15,22 @@ const handleEscapes = (evt) => {
   }
 };
 
-const handleOutside = (evt) => {
-  if (evt.target.classList.contains("popup")) {
-    closeModal(evt.target);
-  }
-};
-
-const handleCross = (evt) => {
-  if (evt.target.closest(".popup__close")) {
-    closeModal(evt.target.closest(".popup"));
-  }
+const closePopupHandler = (modal) => {
+  return (evt) => {
+    if (
+      evt.target.classList.contains("popup__close") ||
+      evt.target === modal
+    ) {
+      closeModal(modal);
+    }
+  };
 };
 
 const attachModalEvents = () => {
-  document.addEventListener("click", handleCross);
-  document.addEventListener("keydown", handleEscapes);
-  document.addEventListener("click", handleOutside);
-};
-
-const removeModalListeners = () => {
-  document.removeEventListener("click", handleCross);
-  document.removeEventListener("keydown", handleEscapes);
-  document.removeEventListener("click", handleOutside);
+  const modal = document.querySelectorAll(".popup");
+  modal.forEach((modal) => {
+    modal.addEventListener("click", closePopupHandler(modal));
+  });
 };
 
 export { openModal, closeModal, attachModalEvents };

@@ -73,9 +73,9 @@ buttonAddCard.addEventListener("click", () => {
 
 buttonEditProfile.addEventListener("click", () => {
   openModal(modalEditProfile);
-  clearValidation(profileForm, validationConfig);
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileDescription.textContent;
+  clearValidation(profileForm, validationConfig);
 });
 
 buttonEditAvatar.addEventListener("click", () => {
@@ -95,8 +95,7 @@ export const openCard = (card) => {
 
 const handleEditFormSubmit = (evt) => {
   evt.preventDefault();
-  const modalElement = document.querySelector(".popup_is-opened");
-  renderSavingLoading(true, modalElement);
+  renderSavingLoading(true, modalEditProfile);
 
   profileInfoAPI({
     name: nameInput.value,
@@ -111,7 +110,7 @@ const handleEditFormSubmit = (evt) => {
       console.error("Ошибка при редактировании профиля:", err);
     })
     .finally(() => {
-      renderSavingLoading(false, modalElement);
+      renderSavingLoading(false, modalEditProfile);
     });
 };
 
@@ -119,8 +118,7 @@ profileForm.addEventListener("submit", handleEditFormSubmit);
 
 cardForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
-  const modalElement = document.querySelector(".popup_is-opened");
-  renderSavingLoading(true, modalElement);
+  renderSavingLoading(true, modalAddNewCard);
 
   postNewCard({
     name: cardFormName.value,
@@ -142,20 +140,19 @@ cardForm.addEventListener("submit", (evt) => {
     })
     .then(() => {
       closeModal(modalAddNewCard);
+      cardForm.reset();
     })
     .catch((err) => {
       console.error("Ошибка при добавлении новой карточки:", err);
     })
     .finally(() => {
-      renderSavingLoading(false, modalElement);
+      renderSavingLoading(false, modalAddNewCard);
     });
-  cardForm.reset();
 });
 
 avatarForm.addEventListener("submit", function (evt) {
   evt.preventDefault();
-  const modalElement = document.querySelector(".popup_is-opened");
-  renderSavingLoading(true, modalElement);
+  renderSavingLoading(true, modalEditAvatar);
 
   profileImageAPI(avatarInput.value)
     .then((data) => {
@@ -166,7 +163,7 @@ avatarForm.addEventListener("submit", function (evt) {
       console.error("Ошибка при редактировании аватара:", err);
     })
     .finally(() => {
-      renderSavingLoading(false, modalElement);
+      renderSavingLoading(false, modalEditAvatar);
     });
 });
 
@@ -177,9 +174,7 @@ formDeleteCard.addEventListener("submit", function (evt) {
 
 attachModalEvents();
 
-window.addEventListener("load", () => {
-  enableValidation(validationConfig);
-});
+enableValidation(validationConfig);
 
 const openDeleteForm = (card, cardId) => {
   openModal(modalConfirmDelete);
@@ -188,8 +183,7 @@ const openDeleteForm = (card, cardId) => {
 };
 
 const deleteCard = (card, cardId) => {
-  const modalElement = document.querySelector(".popup_is-opened");
-  renderDeleteLoading(true, modalElement);
+  renderDeleteLoading(true, modalConfirmDelete);
 
   deleteCardAPI(cardId)
     .then(() => {
@@ -200,7 +194,7 @@ const deleteCard = (card, cardId) => {
       console.error("Произошла ошибка:", err);
     })
     .finally(() => {
-      renderDeleteLoading(false, modalElement);
+      renderDeleteLoading(false, modalConfirmDelete);
     });
 };
 

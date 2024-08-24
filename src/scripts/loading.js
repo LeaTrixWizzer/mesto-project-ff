@@ -1,5 +1,5 @@
 const renderSavingLoading = (isLoading, modalElement) => {
-  const activeButton = modalElement.querySelector(".popup__button");
+  const activeButton = modalElement.querySelector("button[type='submit']");
   if (isLoading) {
     activeButton.textContent = "Сохранение...";
   } else {
@@ -8,7 +8,7 @@ const renderSavingLoading = (isLoading, modalElement) => {
 };
 
 const renderDeleteLoading = (isLoading, modalElement) => {
-  const activeButton = modalElement.querySelector(".popup__button");
+  const activeButton = modalElement.querySelector("button[type='submit']");
   if (isLoading) {
     activeButton.textContent = "Удаление...";
   } else {
